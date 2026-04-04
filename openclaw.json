@@ -1,0 +1,167 @@
+{
+  "version": "2.0",
+  "workspace": "f:/Smart-Vault-Ai/agents",
+  "model": "anthropic/claude-sonnet-4-6",
+  "org": {
+    "name": "Smart Vault Co.",
+    "owner": "CJ",
+    "structure": 4,
+    "github": "https://github.com/iamlukethedev/Claw3D",
+    "total_agents": 22
+  },
+
+  "agents": [
+    { "id": "ceo",                  "name": "Clawbot CEO",          "emoji": "🧠",  "default": true,  "model": "anthropic/claude-sonnet-4-6",   "workspace": "CEO"                  },
+    { "id": "trading-bot",          "name": "Trading Bot",          "emoji": "📈",  "model": "anthropic/claude-sonnet-4-6",   "workspace": "trading-bot"          },
+    { "id": "real-estate-bot",      "name": "Real Estate Bot",      "emoji": "🏠",  "model": "anthropic/claude-sonnet-4-6",   "workspace": "real-estate-bot"      },
+    { "id": "research",             "name": "Research Bot",         "emoji": "🔬",  "model": "anthropic/claude-sonnet-4-6",   "workspace": "research"             },
+    { "id": "hustle-bot",           "name": "Hustle Bot",           "emoji": "💰",  "model": "anthropic/claude-haiku-4-5",    "workspace": "hustle-bot"           },
+    { "id": "closer",               "name": "Closer Bot",           "emoji": "🤝",  "model": "anthropic/claude-sonnet-4-6",   "workspace": "closer"               },
+    { "id": "product-scout",        "name": "Product Scout",        "emoji": "🔍",  "model": "anthropic/claude-haiku-4-5",    "workspace": "product-scout"        },
+    { "id": "content-builder",      "name": "Content Builder",      "emoji": "✍️",  "model": "anthropic/claude-haiku-4-5",    "workspace": "content-builder"      },
+    { "id": "social-media-bot",     "name": "Social Media Bot",     "emoji": "📱",  "model": "anthropic/claude-haiku-4-5",    "workspace": "social-media-bot"     },
+    { "id": "email-bot",            "name": "Email Bot",            "emoji": "📧",  "model": "anthropic/claude-haiku-4-5",    "workspace": "email-bot"            },
+    { "id": "designer",             "name": "Designer Bot",         "emoji": "🎨",  "model": "anthropic/claude-haiku-4-5",    "workspace": "designer"             },
+    { "id": "ad-creator",           "name": "Ad Creator",           "emoji": "🎯",  "model": "anthropic/claude-sonnet-4-6",   "workspace": "ad-creator"           },
+    { "id": "order-manager",        "name": "Order Manager",        "emoji": "📦",  "model": "anthropic/claude-haiku-4-5",    "workspace": "order-manager"        },
+    { "id": "customer-service",     "name": "CS Bot",               "emoji": "💬",  "model": "anthropic/claude-haiku-4-5",    "workspace": "customer-service"     },
+    { "id": "analytics-bot",        "name": "Analytics Bot",        "emoji": "📊",  "model": "anthropic/claude-haiku-4-5",    "workspace": "analytics-bot"        },
+    { "id": "automation-bot",       "name": "Automation Bot",       "emoji": "⚙️",  "model": "anthropic/claude-sonnet-4-6",   "workspace": "automation-bot"       },
+    { "id": "rd-director",          "name": "R&D Director",         "emoji": "🧪",  "model": "anthropic/claude-sonnet-4-6",   "workspace": "rd-director"          },
+    { "id": "trading-researcher",   "name": "Trading Researcher",   "emoji": "📚",  "model": "anthropic/claude-sonnet-4-6",   "workspace": "trading-researcher"   },
+    { "id": "crypto-researcher",    "name": "Crypto Researcher",    "emoji": "₿",   "model": "anthropic/claude-sonnet-4-6",   "workspace": "crypto-researcher"    },
+    { "id": "realestate-researcher","name": "RE Researcher",        "emoji": "🏘️", "model": "anthropic/claude-sonnet-4-6",   "workspace": "realestate-researcher"},
+    { "id": "ai-tech-researcher",   "name": "AI & Tech Researcher", "emoji": "🤖",  "model": "anthropic/claude-sonnet-4-6",   "workspace": "ai-tech-researcher"   },
+    { "id": "business-researcher",  "name": "Business Researcher",  "emoji": "📰",  "model": "anthropic/claude-sonnet-4-6",   "workspace": "business-researcher"  }
+  ],
+
+  "channels": {
+    "ceobot": {
+      "enabled": true,
+      "botToken": "${TELEGRAM_CEO_BOT_TOKEN}",
+      "dmpolicy": "pairing"
+    },
+    "tradingbot": {
+      "enabled": true,
+      "botToken": "${TELEGRAM_TRADING_BOT_TOKEN}",
+      "dmpolicy": "pairing"
+    },
+    "rebot": {
+      "enabled": true,
+      "botToken": "${TELEGRAM_RE_BOT_TOKEN}",
+      "dmpolicy": "pairing"
+    },
+    "rdbot": {
+      "enabled": true,
+      "botToken": "${TELEGRAM_RD_BOT_TOKEN}",
+      "dmpolicy": "pairing"
+    },
+    "discord": {
+      "enabled": true,
+      "botToken": "${DISCORD_BOT_TOKEN}",
+      "serverId": "${DISCORD_SERVER_ID}",
+      "channels": {
+        "alerts":       "${DISCORD_ALERTS_CHANNEL_ID}",
+        "trading":      "${DISCORD_TRADING_CHANNEL_ID}",
+        "realestate":   "${DISCORD_RE_CHANNEL_ID}",
+        "hustle":       "${DISCORD_HUSTLE_CHANNEL_ID}",
+        "analytics":    "${DISCORD_ANALYTICS_CHANNEL_ID}",
+        "rd":           "${DISCORD_RD_CHANNEL_ID}",
+        "system":       "${DISCORD_SYSTEM_CHANNEL_ID}"
+      }
+    }
+  },
+
+  "bindings": [
+    { "agentId": "ceo",            "channel": "telegram", "accountId": "ceobot"     },
+    { "agentId": "trading-bot",    "channel": "telegram", "accountId": "tradingbot"  },
+    { "agentId": "real-estate-bot","channel": "telegram", "accountId": "rebot"       },
+    { "agentId": "rd-director",    "channel": "telegram", "accountId": "rdbot"       },
+    { "agentId": "hustle-bot",     "channel": "discord",  "accountId": "hustle"      },
+    { "agentId": "analytics-bot",  "channel": "discord",  "accountId": "analytics"   },
+    { "agentId": "rd-director",    "channel": "discord",  "accountId": "rd"          },
+    { "agentId": "trading-bot",    "channel": "discord",  "accountId": "trading"     }
+  ],
+
+  "tools": {
+    "agentToAgent": {
+      "enabled": true,
+      "maxPingPongTurns": 5,
+      "allow": [
+        "ceo", "trading-bot", "real-estate-bot", "research",
+        "hustle-bot", "closer", "product-scout", "content-builder",
+        "social-media-bot", "email-bot", "designer", "ad-creator",
+        "order-manager", "customer-service", "analytics-bot", "automation-bot",
+        "rd-director", "trading-researcher", "crypto-researcher",
+        "realestate-researcher", "ai-tech-researcher", "business-researcher"
+      ],
+      "delegation": [
+        { "from": "ceo",              "to": "research",             "mode": "sessions_spawn" },
+        { "from": "ceo",              "to": "hustle-bot",           "mode": "sessions_spawn" },
+        { "from": "ceo",              "to": "trading-bot",          "mode": "sessions_spawn" },
+        { "from": "ceo",              "to": "real-estate-bot",      "mode": "sessions_spawn" },
+        { "from": "ceo",              "to": "content-builder",      "mode": "sessions_send"  },
+        { "from": "ceo",              "to": "product-scout",        "mode": "sessions_spawn" },
+        { "from": "ceo",              "to": "designer",             "mode": "sessions_send"  },
+        { "from": "ceo",              "to": "ad-creator",           "mode": "sessions_spawn" },
+        { "from": "ceo",              "to": "order-manager",        "mode": "sessions_spawn" },
+        { "from": "ceo",              "to": "customer-service",     "mode": "sessions_spawn" },
+        { "from": "ceo",              "to": "social-media-bot",     "mode": "sessions_spawn" },
+        { "from": "ceo",              "to": "email-bot",            "mode": "sessions_spawn" },
+        { "from": "ceo",              "to": "analytics-bot",        "mode": "sessions_send"  },
+        { "from": "ceo",              "to": "automation-bot",       "mode": "sessions_spawn" },
+        { "from": "ceo",              "to": "rd-director",          "mode": "sessions_send"  },
+        { "from": "real-estate-bot",  "to": "closer",               "mode": "sessions_send"  },
+        { "from": "content-builder",  "to": "social-media-bot",     "mode": "sessions_spawn" },
+        { "from": "content-builder",  "to": "email-bot",            "mode": "sessions_spawn" },
+        { "from": "content-builder",  "to": "designer",             "mode": "sessions_send"  },
+        { "from": "ad-creator",       "to": "designer",             "mode": "sessions_send"  },
+        { "from": "product-scout",    "to": "designer",             "mode": "sessions_send"  },
+        { "from": "order-manager",    "to": "customer-service",     "mode": "sessions_send"  },
+        { "from": "rd-director",      "to": "trading-researcher",   "mode": "sessions_spawn" },
+        { "from": "rd-director",      "to": "crypto-researcher",    "mode": "sessions_spawn" },
+        { "from": "rd-director",      "to": "realestate-researcher","mode": "sessions_spawn" },
+        { "from": "rd-director",      "to": "ai-tech-researcher",   "mode": "sessions_spawn" },
+        { "from": "rd-director",      "to": "business-researcher",  "mode": "sessions_spawn" },
+        { "from": "trading-researcher",    "to": "trading-bot",     "mode": "sessions_send"  },
+        { "from": "crypto-researcher",     "to": "trading-bot",     "mode": "sessions_send"  },
+        { "from": "realestate-researcher", "to": "real-estate-bot", "mode": "sessions_send"  },
+        { "from": "ai-tech-researcher",    "to": "automation-bot",  "mode": "sessions_send"  },
+        { "from": "business-researcher",   "to": "ceo",             "mode": "sessions_send"  }
+      ]
+    }
+  },
+
+  "schedules": {
+    "hustle-bot":           { "interval": "every_6h",   "task": "scan_opportunities",    "output": "discord:#hustle" },
+    "analytics-bot":        { "interval": "daily_0600", "task": "generate_scorecard",    "output": "discord:#analytics + telegram:ceo" },
+    "product-scout":        { "interval": "daily_0800", "task": "scan_products",         "output": "shared/daily-products.json" },
+    "trading-bot":          { "interval": "daily_0600", "task": "generate_pl_report",    "output": "discord:#trading + telegram:ceo" },
+    "rd-director":          { "interval": "weekly_fri", "task": "compile_intel_report",  "output": "KB/weekly-intel + discord:#rd + telegram:ceo" },
+    "trading-researcher":   { "interval": "daily_scan", "task": "research_trading",      "output": "KB/trading-strategies/" },
+    "crypto-researcher":    { "interval": "daily_scan", "task": "research_defi_crypto",  "output": "KB/arcrypto-defi-strategy.md" },
+    "realestate-researcher":{ "interval": "daily_scan", "task": "research_realestate",   "output": "KB/realestate-research/" },
+    "ai-tech-researcher":   { "interval": "daily_scan", "task": "research_ai_tools",     "output": "KB/ai-tools/" },
+    "business-researcher":  { "interval": "daily_scan", "task": "research_business",     "output": "KB/business-models/" },
+    "order-manager":        { "interval": "continuous", "task": "monitor_orders",        "output": "shopify_webhook" }
+  },
+
+  "revenue_loops": {
+    "daily_product":   ["hustle-bot", "product-scout", "content-builder", "designer", "ad-creator", "customer-service", "order-manager"],
+    "real_estate":     ["real-estate-bot", "closer", "ceo"],
+    "trading":         ["trading-bot", "analytics-bot", "ceo"],
+    "content_publish": ["content-builder", "designer", "social-media-bot", "email-bot"],
+    "daily_reporting": ["analytics-bot", "ceo"],
+    "rd_loop":         ["rd-director", "trading-researcher", "crypto-researcher", "realestate-researcher", "ai-tech-researcher", "business-researcher", "ceo"]
+  },
+
+  "paths": {
+    "env":       "f:/Smart-Vault-Ai/.env",
+    "kb":        "f:/Smart-Vault-Ai/KB",
+    "output":    "f:/Smart-Vault-Ai/output",
+    "prompts":   "f:/Smart-Vault-Ai/prompts",
+    "templates": "f:/Smart-Vault-Ai/templates",
+    "shared":    "f:/Smart-Vault-Ai/shared",
+    "logs":      "f:/Smart-Vault-Ai/logs"
+  }
+}

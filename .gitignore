@@ -1,0 +1,17 @@
+# Environment variables — NEVER commit
+.env
+*.env
+
+# Agent session logs — local only
+agents/*/sessions/
+agents/*/memory/
+
+# Auth credentials — local only
+agents/*/auth-profiles.json
+
+# Output files — generated content
+output/
+
+# OS files
+.DS_Store
+Thumbs.db

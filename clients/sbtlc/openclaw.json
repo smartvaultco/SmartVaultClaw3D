@@ -1,0 +1,60 @@
+{
+  "version": "2.0",
+  "workspace": "f:/Smart-Vault-Ai/clients/sbtlc/agents",
+  "model": "anthropic/claude-sonnet-4-6",
+  "org": {
+    "name": "SB Trust & Legal Consultants",
+    "client": true,
+    "managed_by": "Smart Vault Co.",
+    "retainer": "$2,250/month",
+    "website": "sbtlc.org"
+  },
+
+  "agents": [
+    { "id": "sbtlc-manager",  "name": "SBTLC Manager",     "emoji": "⚖️",  "default": true, "model": "anthropic/claude-sonnet-4-6", "workspace": "sbtlc-manager"  },
+    { "id": "marketing-bot",  "name": "SBTLC Marketing",   "emoji": "📢",  "model": "anthropic/claude-haiku-4-5",   "workspace": "marketing-bot"  },
+    { "id": "social-bot",     "name": "SBTLC Social",      "emoji": "📱",  "model": "anthropic/claude-haiku-4-5",   "workspace": "social-bot"     },
+    { "id": "seo-bot",        "name": "SBTLC SEO",         "emoji": "🔎",  "model": "anthropic/claude-haiku-4-5",   "workspace": "seo-bot"        },
+    { "id": "lead-gen-bot",   "name": "SBTLC Lead Gen",    "emoji": "🎯",  "model": "anthropic/claude-haiku-4-5",   "workspace": "lead-gen-bot"   },
+    { "id": "report-bot",     "name": "SBTLC Reporter",    "emoji": "📋",  "model": "anthropic/claude-haiku-4-5",   "workspace": "report-bot"     }
+  ],
+
+  "channels": {
+    "sbtlcbot": {
+      "enabled": true,
+      "botToken": "${TELEGRAM_SBTLC_BOT_TOKEN}",
+      "dmpolicy": "pairing"
+    }
+  },
+
+  "bindings": [
+    { "agentId": "sbtlc-manager", "channel": "telegram", "accountId": "sbtlcbot" }
+  ],
+
+  "tools": {
+    "agentToAgent": {
+      "enabled": true,
+      "maxPingPongTurns": 5,
+      "allow": ["sbtlc-manager", "marketing-bot", "social-bot", "seo-bot", "lead-gen-bot", "report-bot"],
+      "delegation": [
+        { "from": "sbtlc-manager", "to": "marketing-bot", "mode": "sessions_spawn" },
+        { "from": "sbtlc-manager", "to": "social-bot",    "mode": "sessions_spawn" },
+        { "from": "sbtlc-manager", "to": "seo-bot",       "mode": "sessions_spawn" },
+        { "from": "sbtlc-manager", "to": "lead-gen-bot",  "mode": "sessions_spawn" },
+        { "from": "sbtlc-manager", "to": "report-bot",    "mode": "sessions_send"  }
+      ]
+    }
+  },
+
+  "schedules": {
+    "social-bot":   { "interval": "daily_0900",    "task": "post_to_all_platforms", "output": "GHL + Buffer" },
+    "lead-gen-bot": { "interval": "daily_0700",    "task": "run_lead_campaigns",    "output": "GHL pipeline" },
+    "seo-bot":      { "interval": "weekly_monday", "task": "audit_sbtlc_site",      "output": "output/reports/seo-audit.md" },
+    "report-bot":   { "interval": "monthly_1st",   "task": "generate_client_report","output": "output/reports/monthly-YYYY-MM.pdf" }
+  },
+
+  "paths": {
+    "kb":     "f:/Smart-Vault-Ai/clients/sbtlc/KB",
+    "output": "f:/Smart-Vault-Ai/clients/sbtlc/output"
+  }
+}
