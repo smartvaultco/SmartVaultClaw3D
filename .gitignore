@@ -1,6 +1,95 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
 # Environment variables — NEVER commit
 .env
+.env*
+!.env.example
 *.env
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+Thumbs.db
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.pfx
+*.jks
+*.keystore
+.netrc
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# playwright
+playwright-report
+test-results
+.playwright-home
+/.playwright-cli
+/output/playwright
+
+# agent state
+/.agent/*
+!/.agent/PLANS.md
+!/.agent/done/
+!/.agent/done/**
+/.agent/done/**/*.md
+/.agent/local
+/.agent/*.local.md
+/.agent/future-plans
+/.openclaw
+/.clawdbot
+/.moltbot
+/agent-canvas
+/worktrees
+/.claude
+
+# local issue tracker
+/.beads
+
+# bv (beads viewer) local config and caches
+.bv/
+
+# Local HTTPS development certificates
+.certs/
+.understand-anything/
+
+# === Smart Vault Additions ===
 
 # Agent session logs — local only
 agents/*/sessions/
@@ -9,16 +98,14 @@ agents/*/memory/
 # Auth credentials — local only
 agents/*/auth-profiles.json
 
+# Agent KB symlinks — local only
+agents/*/KB
+
 # Large media files — too big for GitHub (keep on local/F drive)
 output/course-assets/*.mp3
 output/course-assets/*.mp4
 output/course-assets/*.pptx
 output/course-assets/*.png
 
-# OS files
-.DS_Store
-Thumbs.db
-
-# Agent KB symlinks — local only
-agents/*/KB
+# Generated tool projects
 output/free-ai-tools/
