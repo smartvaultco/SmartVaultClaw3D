@@ -51,6 +51,7 @@ PLATFORMS = {
 
 KB_BASE = Path("f:/Smart-Vault-Ai/KB/realestate")
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
+RAW_MODE = False
 
 #  Claude processor 
 
@@ -217,6 +218,9 @@ async def scrape_kartra(page, config, kb_path, index_entries, processed_ref, ski
             if len(raw_content) < 100:
                 print(f"  ! Insufficient content ({len(raw_content)} chars) - saving placeholder")
                 kb_content = f"# {title}\n## Course: {config['name']} | Lesson {lesson_num}\n\n*Transcript not available - add manually.*\n\nURL: {current_url}\n"
+            elif RAW_MODE:
+                print(f"  [RAW] Saving {len(raw_content)} chars without Claude processing")
+                kb_content = f"# {title}\n## Course: {config['name']} | Lesson {lesson_num}\n\n---\n\n{raw_content}\n"
             else:
                 print(f"  Sending {len(raw_content)} chars to Claude...")
                 kb_content = process_transcript_to_kb(raw_content, title, config["name"], lesson_num)
@@ -400,6 +404,9 @@ async def scrape_course(platform_key: str):
                     if len(raw_content) < 100:
                         print(f"  ! Insufficient content ({len(raw_content)} chars) - saving placeholder")
                         kb_content = f"# {title}\n## Course: {config['name']} | Lesson {i}\n\n*Transcript not available - add manually.*\n\nURL: {url}\n"
+                    elif RAW_MODE:
+                        print(f"  [RAW] Saving {len(raw_content)} chars without Claude processing")
+                        kb_content = f"# {title}\n## Course: {config['name']} | Lesson {i}\n\n---\n\n{raw_content}\n"
                     else:
                         print(f"  Sending {len(raw_content)} chars to Claude for processing...")
                         kb_content = process_transcript_to_kb(raw_content, title, config["name"], i)
@@ -453,7 +460,7 @@ async def scrape_course(platform_key: str):
         await browser.close()
 
 
-#  Entry point 
+#  Entry point
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Smart Vault Co. Course Scraper")
@@ -463,6 +470,48 @@ if __name__ == "__main__":
         required=True,
         help="Which course platform to scrape"
     )
+    parser.add_argument(
+        "--raw",
+        action="store_true",
+        help="Save raw extracted text without Claude API processing (free, no credits used)"
+    )
+    parser.add_argument(
+        "--process",
+        action="store_true",
+        help="Process existing raw .md files through Claude API (run after --raw)"
+    )
     args = parser.parse_args()
 
-    asyncio.run(scrape_course(args.platform))
+    RAW_MODE = args.raw
+
+    if args.process:
+        # Process existing raw files through Claude
+        config = PLATFORMS[args.platform]
+        kb_path = Path(config["kb_path"])
+        raw_files = sorted(kb_path.glob("*.md"))
+        raw_files = [f for f in raw_files if f.name != "INDEX.md"]
+        print(f"\nProcessing {len(raw_files)} files through Claude API...")
+        for i, filepath in enumerate(raw_files, 1):
+            content = filepath.read_text(encoding="utf-8")
+            if "Transcript not available" in content:
+                print(f"  [{i}/{len(raw_files)}] SKIP (placeholder): {filepath.name}")
+                continue
+            # Extract raw text after the --- separator
+            parts = content.split("---\n\n", 1)
+            if len(parts) < 2:
+                print(f"  [{i}/{len(raw_files)}] SKIP (already processed): {filepath.name}")
+                continue
+            raw_text = parts[1].strip()
+            # Extract title from first line
+            title = content.split("\n")[0].replace("# ", "")
+            print(f"  [{i}/{len(raw_files)}] Processing: {filepath.name} ({len(raw_text)} chars)")
+            try:
+                kb_content = process_transcript_to_kb(raw_text, title, config["name"], i)
+                filepath.write_text(kb_content, encoding="utf-8")
+                print(f"  Saved: {filepath.name}")
+            except Exception as e:
+                print(f"  ! Error: {e}")
+        print("\nDone!")
+    else:
+        RAW_MODE = args.raw
+        asyncio.run(scrape_course(args.platform))

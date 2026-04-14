@@ -9,9 +9,16 @@ agents/*/memory/
 # Auth credentials — local only
 agents/*/auth-profiles.json
 
-# Output files — generated content
-output/
+# Large media files — too big for GitHub (keep on local/F drive)
+output/course-assets/*.mp3
+output/course-assets/*.mp4
+output/course-assets/*.pptx
+output/course-assets/*.png
 
 # OS files
 .DS_Store
 Thumbs.db
+
+# Agent KB symlinks — local only
+agents/*/KB
+output/free-ai-tools/

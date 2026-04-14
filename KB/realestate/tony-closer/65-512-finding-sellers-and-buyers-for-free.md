@@ -1,0 +1,142 @@
+# 5.12 Finding Sellers and Buyers for Free!
+## Course: Tony The Closer | Lesson 65
+
+---
+
+Rona Proof Masterclass / Categories / Step 7 Finding Cash Buyers / 5.12 Finding Sellers and Buyers for Free!
+	
+	
+	
+9:42
+	
+Step 7 Finding Cash Buyers
+	
+6 Lessons
+
+1
+
+	
+	
+
+Live Cash Buyer
+
+	
+
+2
+
+	
+	
+
+5.28 Buyers get more buyers
+
+	
+
+	
+	
+
+5.12 Finding Sellers and Buyers for Free!
+
+	
+
+4
+
+	
+	
+
+Cash Buyer Hack
+
+	
+
+5
+
+	
+	
+
+Selling your deal to cash buyers
+
+	
+
+6
+
+	
+	
+
+Cash Buyers
+
+	
+
+Next Category
+
+Mark As Complete
+ 
+Great Job! Keep Going!
+Cash Buyer Hack Next Lesson 
+5.12 Finding Sellers and Buyers for Free!
+Step 7 Finding Cash Buyers
+Comments   26
+Post Comment
+	
+
+Randall Gordon
+
+	
+
+on Dec 31, 2022
+
+"You said sexxy" lol Thank you this one gave me some new motivation !
+
+REPLY
+	
+
+larrell walker
+
+	
+
+on Nov 6, 2022
+
+👍🏾
+
+REPLY
+	
+
+Yolanda Covington
+
+	
+
+on Oct 24, 2022
+
+🔥❤️
+
+REPLY
+	
+
+dazhadav
+
+	
+
+on Oct 24, 2022
+
+🤣🤣🤣
+
+REPLY
+	
+
+Jeanolee Sidbury
+
+	
+
+on Oct 22, 2022
+
+💎💎 "That's sexy right there now"🤣🤣
+
+REPLY
+Show More
+ 
+Instructor
+	
+
+Tony
+
+The Closer
+
+Former NFL athlete now Best Selling Author and Sales Expert. Tony has used his sales background to help him close thousands of deals in his career.

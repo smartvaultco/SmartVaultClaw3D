@@ -1,0 +1,169 @@
+{
+  "name": "The AI Growth Masterclass",
+  "children": [
+    {
+      "name": "The Sovereign Tech Stack",
+      "children": [
+        {
+          "name": "Layer 1: Command Center",
+          "children": [
+            {
+              "name": "GoHighLevel (GHL)"
+            },
+            {
+              "name": "CRM, Funnels, Email, SMS"
+            }
+          ]
+        },
+        {
+          "name": "Layer 2: Automation Engine",
+          "children": [
+            {
+              "name": "n8n (Complex logic)"
+            },
+            {
+              "name": "Make.com (Linear workflows)"
+            }
+          ]
+        },
+        {
+          "name": "Layer 3: AI Brain",
+          "children": [
+            {
+              "name": "Claude (Strategy/Writing)"
+            },
+            {
+              "name": "ChatGPT (Brainstorming)"
+            },
+            {
+              "name": "Perplexity (Research)"
+            }
+          ]
+        },
+        {
+          "name": "Layer 4: Knowledge Base",
+          "children": [
+            {
+              "name": "NotebookLM (Smart Vault)"
+            },
+            {
+              "name": "Proprietary Data Storage"
+            }
+          ]
+        },
+        {
+          "name": "Layer 5: Content Factory",
+          "children": [
+            {
+              "name": "Buffer, Canva, Midjourney"
+            },
+            {
+              "name": "ElevenLabs (AI Voice)"
+            }
+          ]
+        },
+        {
+          "name": "Layer 6: Tracking & Attribution",
+          "children": [
+            {
+              "name": "Hyros (Ad Tracking)"
+            },
+            {
+              "name": "GA4 & UTM Governance"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "The Mogul Triad (ROI)",
+      "children": [
+        {
+          "name": "Strategy (Blueprint)"
+        },
+        {
+          "name": "Automation (Hammer)"
+        },
+        {
+          "name": "Data (Compass)"
+        }
+      ]
+    },
+    {
+      "name": "90-Day ROI Framework",
+      "children": [
+        {
+          "name": "Month 1: Foundation (Stack buildout)"
+        },
+        {
+          "name": "Month 2: Optimization (Data review)"
+        },
+        {
+          "name": "Month 3: Scale (Multiplication)"
+        }
+      ]
+    },
+    {
+      "name": "AI Content Engine",
+      "children": [
+        {
+          "name": "1 Pillar Recording"
+        },
+        {
+          "name": "30+ Content Pieces"
+        },
+        {
+          "name": "Human-in-the-Loop Review"
+        }
+      ]
+    },
+    {
+      "name": "Chatbot & Voice Ops",
+      "children": [
+        {
+          "name": "Tier 1: FAQ Bot"
+        },
+        {
+          "name": "Tier 2: Lead Qualifier"
+        },
+        {
+          "name": "Tier 3: Appointment Booker"
+        },
+        {
+          "name": "Escalation Protocols"
+        }
+      ]
+    },
+    {
+      "name": "Ad & Lead Machines",
+      "children": [
+        {
+          "name": "New Standard Ad Framework"
+        },
+        {
+          "name": "Thumb-Stopper Hook (0-7s)"
+        },
+        {
+          "name": "Revenue Ladder Funnel"
+        },
+        {
+          "name": "Psychographic ICP Targeting"
+        }
+      ]
+    },
+    {
+      "name": "The Smart Vault Method",
+      "children": [
+        {
+          "name": "NotebookLM Integration"
+        },
+        {
+          "name": "Diamond Standard Model"
+        },
+        {
+          "name": "Shadow Work (Pressure testing)"
+        }
+      ]
+    }
+  ]
+}

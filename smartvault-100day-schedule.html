@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Vault Co. — 100 Day Operating System</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;700&display=swap');
+
+  :root {
+    --black: #080808;
+    --gold: #C9A84C;
+    --gold-light: #E8C76A;
+    --gold-dim: #7A6230;
+    --white: #F5F0E8;
+    --gray: #1A1A1A;
+    --gray2: #242424;
+    --gray3: #333;
+    --accent: #FF5C1A;
+    --green: #2ECC71;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* GRAIN OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* HEADER */
+  header {
+    border-bottom: 1px solid var(--gold-dim);
+    padding-bottom: 32px;
+    margin-bottom: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 8vw, 96px);
+    line-height: 0.9;
+    color: var(--white);
+    letter-spacing: 2px;
+  }
+
+  h1 span {
+    color: var(--gold);
+  }
+
+  .tagline {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--gold-dim);
+    letter-spacing: 2px;
+    margin-top: 12px;
+  }
+
+  .header-stats {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .stat-pill {
+    background: var(--gray2);
+    border: 1px solid var(--gold-dim);
+    padding: 8px 16px;
+    border-radius: 2px;
+    text-align: center;
+  }
+
+  .stat-pill .num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--gold);
+    line-height: 1;
+    display: block;
+  }
+
+  .stat-pill .label {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--white);
+    opacity: 0.5;
+    text-transform: uppercase;
+  }
+
+  /* SECTION TITLES */
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--gold-dim);
+    opacity: 0.4;
+  }
+
+  /* DAILY SCHEDULE */
+  .schedule-grid {
+    display: grid;
+    gap: 3px;
+    margin-bottom: 48px;
+  }
+
+  .schedule-row {
+    display: grid;
+    grid-template-columns: 100px 1fr 140px;
+    gap: 3px;
+    animation: fadeUp 0.4s ease both;
+  }
+
+  .schedule-row:nth-child(1) { animation-delay: 0.05s; }
+  .schedule-row:nth-child(2) { animation-delay: 0.1s; }
+  .schedule-row:nth-child(3) { animation-delay: 0.15s; }
+  .schedule-row:nth-child(4) { animation-delay: 0.2s; }
+  .schedule-row:nth-child(5) { animation-delay: 0.25s; }
+  .schedule-row:nth-child(6) { animation-delay: 0.3s; }
+  .schedule-row:nth-child(7) { animation-delay: 0.35s; }
+  .schedule-row:nth-child(8) { animation-delay: 0.4s; }
+  .schedule-row:nth-child(9) { animation-delay: 0.45s; }
+  .schedule-row:nth-child(10) { animation-delay: 0.5s; }
+  .schedule-row:nth-child(11) { animation-delay: 0.55s; }
+  .schedule-row:nth-child(12) { animation-delay: 0.6s; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .time-cell {
+    background: var(--gray2);
+    padding: 14px 16px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+  }
+
+  .task-cell {
+    background: var(--gray);
+    padding: 14px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .task-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .task-detail {
+    font-size: 11px;
+    color: var(--white);
+    opacity: 0.45;
+  }
+
+  .tag-cell {
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .tag-learn { background: #1A2E1A; color: var(--green); }
+  .tag-create { background: #2E1A0A; color: #FF8C42; }
+  .tag-post { background: #1A1A2E; color: #7B9FFF; }
+  .tag-dm { background: #2E1A1A; color: #FF6B6B; }
+  .tag-admin { background: #1E1E1E; color: #888; }
+  .tag-batch { background: #2E2A10; color: var(--gold); }
+
+  /* AUTOMATION FLOW */
+  .automation-flow {
+    background: var(--gray2);
+    border: 1px solid var(--gold-dim);
+    border-left: 3px solid var(--gold);
+    padding: 28px;
+    margin-bottom: 48px;
+    border-radius: 2px;
+  }
+
+  .flow-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--gold);
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+  }
+
+  .flow-steps {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-wrap: wrap;
+    row-gap: 12px;
+  }
+
+  .flow-step {
+    background: var(--gray3);
+    padding: 10px 16px;
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+    position: relative;
+  }
+
+  .flow-step .step-label {
+    font-size: 8px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  .flow-arrow {
+    color: var(--gold-dim);
+    font-size: 18px;
+    padding: 0 8px;
+    flex-shrink: 0;
+  }
+
+  /* 30-DAY PHASES */
+  .phases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3px;
+    margin-bottom: 48px;
+  }
+
+  .phase-card {
+    background: var(--gray);
+    padding: 24px 20px;
+    border-top: 2px solid var(--gold-dim);
+    transition: border-color 0.2s;
+  }
+
+  .phase-card:hover {
+    border-top-color: var(--gold);
+  }
+
+  .phase-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: var(--gold-dim);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .phase-week {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .phase-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .phase-tasks {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .phase-tasks li {
+    font-size: 11px;
+    color: var(--white);
+    opacity: 0.6;
+    padding-left: 12px;
+    position: relative;
+  }
+
+  .phase-tasks li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    opacity: 0.7;
+  }
+
+  /* SUNDAY BATCH */
+  .batch-block {
+    background: var(--gray2);
+    border: 1px solid var(--gold-dim);
+    padding: 28px;
+    margin-bottom: 48px;
+    border-radius: 2px;
+  }
+
+  .batch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .batch-item {
+    background: var(--black);
+    padding: 16px;
+    border-left: 2px solid var(--gold);
+  }
+
+  .batch-item .bi-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+
+  .batch-item .bi-detail {
+    font-size: 11px;
+    opacity: 0.5;
+    line-height: 1.5;
+  }
+
+  /* REVENUE TABLE */
+  .revenue-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 48px;
+  }
+
+  .revenue-table th {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--gold-dim);
+    text-transform: uppercase;
+  }
+
+  .revenue-table td {
+    padding: 14px 16px;
+    font-size: 13px;
+    border-bottom: 1px solid var(--gray2);
+  }
+
+  .revenue-table tr:last-child td {
+    border-bottom: none;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--gold);
+  }
+
+  .green { color: var(--green); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--gold-dim);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  footer .f-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 3px;
+    color: var(--gold);
+  }
+
+  footer .f-url {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--gold-dim);
+    letter-spacing: 2px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .schedule-row {
+      grid-template-columns: 80px 1fr;
+    }
+    .tag-cell { display: none; }
+    .flow-steps { flex-direction: column; align-items: flex-start; }
+    .flow-arrow { transform: rotate(90deg); }
+    header { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <div>
+      <div class="logo">Smart Vault Co. LLC</div>
+      <h1>100 DAY<br><span>OS</span></h1>
+      <p class="tagline">// CLAUDE COWORK MASTERY + CONTENT ENGINE + $100K SYSTEM</p>
+    </div>
+    <div class="header-stats">
+      <div class="stat-pill">
+        <span class="num">100</span>
+        <span class="label">Days</span>
+      </div>
+      <div class="stat-pill">
+        <span class="num">300</span>
+        <span class="label">Posts</span>
+      </div>
+      <div class="stat-pill">
+        <span class="num">$100K</span>
+        <span class="label">Target</span>
+      </div>
+      <div class="stat-pill">
+        <span class="num">3×</span>
+        <span class="label">Daily</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- DAILY SCHEDULE -->
+  <div class="section-label">Daily Operating Schedule</div>
+  <div class="schedule-grid">
+
+    <div class="schedule-row">
+      <div class="time-cell">5:30 AM</div>
+      <div class="task-cell">
+        <span class="task-title">Wake + Morning Ritual</span>
+        <span class="task-detail">Review yesterday's stats, set daily intention, review today's content queue in GHL</span>
+      </div>
+      <div class="tag-cell tag-admin">ADMIN</div>
+    </div>
+
+    <div class="schedule-row">
+      <div class="time-cell">6:00 AM</div>
+      <div class="task-cell">
+        <span class="task-title">LEARNING BLOCK — Claude Cowork Course</span>
+        <span class="task-detail">Anthropic Skilljar / claudecoworkcourse.com / CC for PMs — 1 lesson per day minimum</span>
+      </div>
+      <div class="tag-cell tag-learn">LEARN</div>
+    </div>
+
+    <div class="schedule-row">
+      <div class="time-cell">7:30 AM</div>
+      <div class="task-cell">
+        <span class="task-title">POST 1 AUTO-FIRES via GHL</span>
+        <span class="task-detail">Tutorial / Demo clip — TikTok, Instagram Reels, YouTube Shorts, LinkedIn</span>
+      </div>
+      <div class="tag-cell tag-post">POST 1</div>
+    </div>
+
+    <div class="schedule-row">
+      <div class="time-cell">8:00 AM</div>
+      <div class="task-cell">
+        <span class="task-title">PRACTICE SESSION — Build Something Real</span>
+        <span class="task-detail">Apply what you just learned in a real Cowork session — screen record everything (raw content)</span>
+      </div>
+      <div class="tag-cell tag-learn">LEARN</div>
+    </div>
+
+    <div class="schedule-row">
+      <div class="time-cell">10:00 AM</div>
+      <div class="task-cell">
+        <span class="task-title">DM OUTREACH BLOCK</span>
+        <span class="task-detail">Find 10–15 comments on Claude videos → send DMs → log responses in GHL CRM pipeline</span>
+      </div>
+      <div class="tag-cell tag-dm">DM</div>
+    </div>
+
+    <div class="schedule-row">
+      <div class="time-cell">11:30 AM</div>
+      <div class="task-cell">
+        <span class="task-title">Video Edit Block — Canva</span>
+        <span class="task-detail">Edit tomorrow's 3 clips in Canva → add captions, branding, music → export → upload to GHL queue</span>
+      </div>
+      <div class="tag-cell tag-create">CREATE</div>
+    </div>
+
+    <div class="schedule-row">
+      <div class="time-cell">12:00 PM</div>
+      <div class="task-cell">
+        <span class="task-title">POST 2 AUTO-FIRES via GHL</span>
+        <span class="task-detail">Personal / Journey update — "Day X: here's what I learned and built today"</span>
+      </div>
+      <div class="tag-cell tag-post">POST 2</div>
+    </div>
+
+    <div class="schedule-row">
+      <div class="time-cell">12:30 PM</div>
+      <div class="task-cell">
+        <span class="task-title">LUNCH + BREAK</span>
+        <span class="task-detail">Decompress. No screens if possible. Recharge for afternoon execution block.</span>
+      </div>
+      <div class="tag-cell tag-admin">BREAK</div>
+    </div>
+
+    <div class="schedule-row">
+      <div class="time-cell">1:30 PM</div>
+      <div class="task-cell">
+        <span class="task-title">Client Work / System Builds</span>
+        <span class="task-detail">Smart Vault Co. deliverables — automation builds, GHL configs, client onboarding</span>
+      </div>
+      <div class="tag-cell tag-admin">CLIENT</div>
+    </div>
+
+    <div class="schedule-row">
+      <div class="time-cell">4:00 PM</div>
+      <div class="task-cell">
+        <span class="task-title">OBS RECORDING SESSION</span>
+        <span class="task-detail">Record 1–2 raw clips for upcoming days — screen share Cowork sessions, talking head, demos</span>
+      </div>
+      <div class="tag-cell tag-create">RECORD</div>
+    </div>
+
+    <div class="schedule-row">
+      <div class="time-cell">6:00 PM</div>
+      <div class="task-cell">
+        <span class="task-title">DM FOLLOW-UP + ENGAGEMENT</span>
+        <span class="task-detail">Reply to all comments, follow up on DMs, engage with other Claude creators (5 comments/day)</span>
+      </div>
+      <div class="tag-cell tag-dm">DM</div>
+    </div>
+
+    <div class="schedule-row">
+      <div class="time-cell">7:00 PM</div>
+      <div class="task-cell">
+        <span class="task-title">POST 3 AUTO-FIRES via GHL</span>
+        <span class="task-detail">Value bomb / monetization angle — income breakdowns, client results, offer-adjacent content</span>
+      </div>
+      <div class="tag-cell tag-post">POST 3</div>
+    </div>
+
+  </div>
+
+  <!-- AUTOMATION FLOW -->
+  <div class="section-label">Content Automation Pipeline</div>
+  <div class="automation-flow">
+    <div class="flow-title">OBS → CANVA → GHL → EVERYWHERE</div>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <span class="step-label">Record</span>
+        OBS Studio
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <span class="step-label">Edit + Brand</span>
+        Canva Video
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <span class="step-label">Upload</span>
+        Google Drive
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <span class="step-label">Schedule</span>
+        GHL Social Planner
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <span class="step-label">Auto-Post</span>
+        TikTok
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <span class="step-label">Auto-Post</span>
+        Instagram
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <span class="step-label">Auto-Post</span>
+        LinkedIn
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <span class="step-label">Zapier →</span>
+        YouTube + X
+      </div>
+    </div>
+  </div>
+
+  <!-- SUNDAY BATCH -->
+  <div class="section-label">Sunday Batch Session — 10AM to 1PM</div>
+  <div class="batch-block">
+    <div class="flow-title">3 HOURS = ENTIRE WEEK COVERED</div>
+    <div class="batch-grid">
+      <div class="batch-item">
+        <div class="bi-title">10:00 – 10:30</div>
+        <div class="bi-detail">Review last week's analytics in GHL. Note top performing post type. Plan this week's angles.</div>
+      </div>
+      <div class="batch-item">
+        <div class="bi-title">10:30 – 11:15</div>
+        <div class="bi-detail">Record 3 screen-capture Cowork sessions (Post 1 clips). Use OBS. Keep each under 90 seconds.</div>
+      </div>
+      <div class="batch-item">
+        <div class="bi-title">11:15 – 11:45</div>
+        <div class="bi-detail">Record 3 talking-head clips (Post 2 journey updates). One take energy. No script needed.</div>
+      </div>
+      <div class="batch-item">
+        <div class="bi-title">11:45 – 12:15</div>
+        <div class="bi-detail">Record 3 value/offer clips (Post 3 monetization). Show income math, client results, DM proof.</div>
+      </div>
+      <div class="batch-item">
+        <div class="bi-title">12:15 – 12:45</div>
+        <div class="bi-detail">Edit all 9 clips in Canva. Add captions, Smart Vault branding, transitions, music. Export all.</div>
+      </div>
+      <div class="batch-item">
+        <div class="bi-title">12:45 – 1:00</div>
+        <div class="bi-detail">Upload all 9 to GHL Social Planner. Schedule 3 per day: 7:30am / 12pm / 7pm. Done for the week.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 30-DAY PHASES -->
+  <div class="section-label">30-Day Learning Phases</div>
+  <div class="phases-grid">
+    <div class="phase-card">
+      <div class="phase-num">01</div>
+      <div class="phase-week">Days 1 – 7</div>
+      <div class="phase-title">Foundation</div>
+      <ul class="phase-tasks">
+        <li>Anthropic Skilljar: Claude 101</li>
+        <li>Intro to Cowork course</li>
+        <li>First 3 real Cowork tasks</li>
+        <li>Install skills (xlsx, docx, pptx, pdf)</li>
+        <li>Chrome connector setup</li>
+      </ul>
+    </div>
+    <div class="phase-card">
+      <div class="phase-num">02</div>
+      <div class="phase-week">Days 8 – 14</div>
+      <div class="phase-title">Workflows</div>
+      <ul class="phase-tasks">
+        <li>CC for PMs interactive course</li>
+        <li>File org + document creation</li>
+        <li>Build first client demo workflow</li>
+        <li>Browser automation with Chrome</li>
+        <li>Batch task processing</li>
+      </ul>
+    </div>
+    <div class="phase-card">
+      <div class="phase-num">03</div>
+      <div class="phase-week">Days 15 – 21</div>
+      <div class="phase-title">Systems</div>
+      <ul class="phase-tasks">
+        <li>Multi-step automation builds</li>
+        <li>Custom skill creation</li>
+        <li>MCP integrations (Gmail, Notion)</li>
+        <li>claudecoworkcourse.com Module 3</li>
+        <li>Build 3 niche demo systems</li>
+      </ul>
+    </div>
+    <div class="phase-card">
+      <div class="phase-num">04</div>
+      <div class="phase-week">Days 22 – 30</div>
+      <div class="phase-title">Monetize</div>
+      <ul class="phase-tasks">
+        <li>Build 5-piece client portfolio</li>
+        <li>Package into 3 offer tiers</li>
+        <li>Create service page at sbtlc.org</li>
+        <li>Build GHL onboarding pipeline</li>
+        <li>Close first paid client</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- REVENUE TABLE -->
+  <div class="section-label">$100K Revenue Map</div>
+  <table class="revenue-table">
+    <thead>
+      <tr>
+        <th>Stream</th>
+        <th>Price</th>
+        <th>Volume</th>
+        <th>Monthly</th>
+        <th>Annual</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Monthly Retainer Clients</td>
+        <td>$3,000/mo</td>
+        <td>2 clients</td>
+        <td class="green">$6,000</td>
+        <td class="green">$72,000</td>
+      </tr>
+      <tr>
+        <td>Setup Day Projects</td>
+        <td>$750 flat</td>
+        <td>2/mo</td>
+        <td class="green">$1,500</td>
+        <td class="green">$18,000</td>
+      </tr>
+      <tr>
+        <td>Digital Course / Guide</td>
+        <td>$197</td>
+        <td>5 sales/mo</td>
+        <td class="green">$985</td>
+        <td class="green">$11,820</td>
+      </tr>
+      <tr>
+        <td>TOTAL</td>
+        <td>—</td>
+        <td>—</td>
+        <td>$8,485</td>
+        <td>$101,820</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="f-logo">Smart Vault Co. LLC</div>
+    <div class="f-url">sbtlc.org · Cortaz Calhoun Jr. Trust · Started April 13, 2026</div>
+  </footer>
+
+</div>
+</body>
+</html>
