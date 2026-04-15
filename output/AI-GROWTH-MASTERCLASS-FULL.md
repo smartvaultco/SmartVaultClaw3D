@@ -1,5 +1,5 @@
 # The AI Growth Masterclass
-## Course Modules 1-3: Complete Production Materials
+## Course Modules 1-10: Complete Production Materials
 ### By CJ | Smart Vault HQ
 
 ---
@@ -815,10 +815,7 @@ D) They'll bookmark your website and return next week
 
 ---
 
-# ============================================================
-# MODULE 4
-# The AI Marketing Engine: From 1 Idea to 30 Pieces of Content
-# ============================================================
+# MODULE 4: The AI Marketing Engine
 
 ---
 
@@ -1096,10 +1093,7 @@ D) $2,000-$5,000/month
 
 ---
 
-# ============================================================
-# MODULE 5
-# AI-Powered Ads That Actually Convert: The New Standard Framework
-# ============================================================
+# MODULE 5: AI-Powered Ads That Actually Convert
 
 ---
 
@@ -1415,10 +1409,7 @@ D) Using A/B testing within a single ad platform to let the algorithm choose
 
 ---
 
-# ============================================================
-# MODULE 6
-# The AI Lead Machine: Automate Prospecting and Never Cold Call Again
-# ============================================================
+# MODULE 6: The AI Lead Machine
 
 ---
 

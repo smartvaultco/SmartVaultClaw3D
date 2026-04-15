@@ -205,7 +205,7 @@ Next up, Module 8 — we are building no-code automations that will replace fort
 - C) CRM, calendar, invoicing
 - D) Facebook, Google, LinkedIn
 
-**Correct Answer: B**
+**Correct Answer: B** -- The three deployment zones are website chat (your digital front door), social DMs (Instagram, Facebook, WhatsApp), and voice/voicemail agents. Each zone plugs a different leak in your customer experience.
 
 ---
 
@@ -215,7 +215,7 @@ Next up, Module 8 — we are building no-code automations that will replace fort
 - C) 4 hours
 - D) 24 hours
 
-**Correct Answer: C**
+**Correct Answer: C** -- Your SLA target for social DM responses is four hours. The bot handles most inquiries instantly, but the four-hour window is your backstop for anything requiring human follow-up.
 
 ---
 
@@ -225,4 +225,15 @@ Next up, Module 8 — we are building no-code automations that will replace fort
 - C) Add the answer to your knowledge base so the bot handles it next time
 - D) Hire another support rep to handle the volume
 
-**Correct Answer: C**
+**Correct Answer: C** -- Every repeated escalation reveals a gap in your knowledge base. Adding the answer means the bot handles it automatically next time, continuously shrinking your Tier 2 workload.
+
+---
+
+## ANSWER KEY
+
+**Fill-in-the-Blank Answers:**
+1. 5 (five)
+2. Website chat widget; Social DMs; Voice/voicemail
+3. bot; human
+4. 4 (four)
+5. 3 (three); knowledge base

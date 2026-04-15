@@ -228,7 +228,7 @@ Next up, Module 9 — we are talking about the Build versus Buy versus Hire deci
 - C) Build the Funnel, Create Creative, Launch
 - D) Research, Capture the Idea, Scale or Kill
 
-**Correct Answer: B**
+**Correct Answer: B** -- The Ideas-to-Income Engine follows a deliberate sequence: Capture the Idea first so it is not lost, then Research to validate demand, then Build the Offer based on what you learned. Skipping or reordering these steps leads to wasted effort.
 
 ---
 
@@ -238,7 +238,7 @@ Next up, Module 9 — we are talking about the Build versus Buy versus Hire deci
 - C) Zapier
 - D) GoHighLevel
 
-**Correct Answer: C**
+**Correct Answer: C** -- Zapier has over six thousand integrations and the simplest interface, making it the best starting point for basic if-then automations. It is the "easy button" for most small businesses.
 
 ---
 
@@ -248,4 +248,15 @@ Next up, Module 9 — we are talking about the Build versus Buy versus Hire deci
 - C) When you need heavy data processing, AI chains, or unlimited executions without per-task fees
 - D) When you want to avoid using a server
 
-**Correct Answer: C**
+**Correct Answer: C** -- n8n is self-hosted with no per-task fees and unlimited executions, making it ideal for heavy data processing and AI reasoning chains where per-execution pricing on Zapier or Make would become expensive.
+
+---
+
+## ANSWER KEY
+
+**Fill-in-the-Blank Answers:**
+1. Research; Build Funnel; Scale or Kill
+2. 28; 11
+3. Zapier; Make.com; n8n
+4. 8-12
+5. 25

@@ -110,17 +110,15 @@ The Vault generates targeting parameters, campaign concepts, and content strateg
 
 Now here is the capstone insight. Once your Vault is built, it becomes the engine behind every system in this course:
 
-Modules 1 and 2, Research and Strategy — query the Vault instead of starting from scratch.
+Modules 1 and 2, Tech Stack and ROI Strategy — query the Vault instead of starting from scratch.
 
-Modules 3 and 4, Ads and Teams — generate ad copy and creative briefs from your Vault's competitive intelligence.
+Modules 3 and 4, Customer Service and Content Creation — generate ad copy and creative briefs from your Vault's competitive intelligence.
 
-Modules 5 and 6, Lead Gen and ROI — use Vault data to project ROI and build targeting parameters.
+Modules 5 and 6, Ads and Lead Generation — use Vault data to project ROI and build targeting parameters.
 
-Module 7, Chatbots — your bots answer from the same knowledge base. One source of truth.
+Modules 7 and 8, Advanced Chatbots and Automation — your bots answer from the same knowledge base, and your automation priorities are informed by Vault insights on what to fix first.
 
-Module 8, Automations — your automation priorities are informed by Vault insights on what to fix first.
-
-Module 9, Build, Buy, or Hire — your audit data lives in the Vault. Any new provider gets up to speed instantly.
+Module 9, Build vs Buy vs Hire — your audit data lives in the Vault. Any new provider gets up to speed instantly.
 
 Everything connects. Everything compounds. The more you feed your Vault, the smarter every system becomes.
 
@@ -303,7 +301,7 @@ I am CJ from Smart Vault HQ. Thank you for going through this course with me. No
 - C) Generate, Populate, Collect, Research, Articulate
 - D) Collect, Articulate, Research, Generate, Populate
 
-**Correct Answer: B**
+**Correct Answer: B** -- The five phases follow a deliberate sequence: Articulate your foundation so AI understands your business, Research to pressure-test assumptions, Collect external data for market context, Populate and organize the Vault, then Generate targeting parameters and strategies from your accumulated intelligence.
 
 ---
 
@@ -313,7 +311,7 @@ I am CJ from Smart Vault HQ. Thank you for going through this course with me. No
 - C) Business plan, customer FAQs, product descriptions, competitor research, ad performance data, and customer feedback
 - D) Your competitors' internal documents
 
-**Correct Answer: C**
+**Correct Answer: C** -- Your Smart Vault should contain your business plan, customer FAQs, product descriptions, competitor research, ad performance data, and customer feedback. These priority documents give the Vault enough context to generate specific, actionable recommendations.
 
 ---
 
@@ -323,4 +321,15 @@ I am CJ from Smart Vault HQ. Thank you for going through this course with me. No
 - C) NotebookLM answers ONLY from your uploaded documents, avoiding generic advice and hallucinations from internet training data
 - D) NotebookLM can run automations that ChatGPT cannot
 
-**Correct Answer: C**
+**Correct Answer: C** -- NotebookLM answers only from your uploaded documents, eliminating hallucinations from internet training data and ensuring every recommendation is grounded in your actual business intelligence rather than generic advice.
+
+---
+
+## ANSWER KEY
+
+**Fill-in-the-Blank Answers:**
+1. Articulate; Research; Collect; Populate; Generate
+2. documents; the entire internet's training data
+3. multiple (five)
+4. Shadow Work
+5. targeting parameters

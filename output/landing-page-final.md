@@ -142,7 +142,7 @@ Privacy Policy | Terms of Service
 ```
 Build a thank you page with a one-time offer upsell. Dark theme.
 
-Brand colors: Navy #0A0E1A background, Cyan #00D4FF accents, Gold #FFD700 CTA buttons.
+Brand colors: Navy #0A0E1A background, Cyan #00D4FF accents, Gold #FFD700 CTA buttons, Secondary Green #00FF88.
 
 SECTION 1: CONFIRMATION
 Green checkmark icon
@@ -191,7 +191,7 @@ Small text link: "No thanks, I'll stick with the free chapter →" (links to con
 ```
 Build a premium course sales page. Dark theme, long-form.
 
-Brand colors: Navy #0A0E1A, Cyan #00D4FF, Gold #FFD700.
+Brand colors: Navy #0A0E1A, Cyan #00D4FF, Gold #FFD700, Secondary Green #00FF88.
 
 SECTION 1: HERO
 Headline: "Build Your AI-Powered Business in 90 Days"
@@ -206,6 +206,7 @@ SECTION 2: PAIN POINTS
 • You answer the same customer questions 50 times a week
 • You know AI could help but you don't know where to start
 • Your competitor just launched a chatbot and you're still using a contact form
+• 78% of customers buy from the first company that responds — and your competitor's chatbot never sleeps
 "You're not behind because you're lazy. You're behind because you don't have a system."
 
 SECTION 3: TRANSFORMATION
@@ -325,7 +326,7 @@ Privacy Policy | Terms of Service
 ```
 Build a clean confirmation/thank you page. Dark theme, minimal.
 
-Brand colors: Navy #0A0E1A, Cyan #00D4FF, Gold #FFD700.
+Brand colors: Navy #0A0E1A, Cyan #00D4FF, Gold #FFD700, Secondary Green #00FF88.
 
 Green checkmark icon at top.
 
@@ -346,6 +347,13 @@ Same as above, plus:
 "Your 1:1 Audit Call: Check your email for a booking link. Grab the earliest slot available."
 Button: "Book Your Audit Call →" (Gold)
 ```
+
+### GHL SETTINGS FOR THIS PAGE:
+- **Conversion tracking:** Add Facebook Pixel and Google Ads conversion tag in Tracking Code > Body
+- **Tags:** Confirm "Ebook Buyer" / "Course Student" / "Audit Tier" tags fire on page load (one per purchase type)
+- **Conditional display:** Use GHL's conditional content blocks to show the correct confirmation section (Ebook / Course / Course + Audit) based on purchase type
+- **Post-purchase workflow:** Trigger "Course Onboarding" workflow for course buyers or "Ebook Delivery" workflow for ebook buyers on page load
+- **Upsell widget:** For ebook buyers, display a banner promoting the AI Growth Masterclass ("Ready for the full system? See the Masterclass →")
 
 ---
 
@@ -382,6 +390,8 @@ Smart Vault HQ
 The average SMB spends $31,476/year on software tools. 51% of those licenses go unused. That's $16,000/year in the trash.
 
 But the bigger cost isn't the money — it's the 5-10 hours per week your team spends manually moving data between systems that should be connected.
+
+Here's the part that should keep you up at night: companies that respond within 5 minutes are 21x more likely to qualify a lead. What happens to YOUR leads at 2 AM?
 
 A home services company in Phoenix was spending $4,200/month on a marketing coordinator plus scattered tools. After implementing the Sovereign Tech Stack from the playbook, they cut to $847/month and went from 43 to 112 leads/month.
 

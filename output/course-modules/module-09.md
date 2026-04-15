@@ -261,7 +261,7 @@ Next up, Module 10 — the capstone. We are building your Smart Vault live. Ever
 - C) DFY (Done For You)
 - D) Hiring a full-time CTO
 
-**Correct Answer: B**
+**Correct Answer: B** -- Done With You (DWY) is the sweet spot because you get professional guidance and faster implementation (30-45 days) while still understanding and owning your systems. No vendor lock-in, no dependency.
 
 ---
 
@@ -271,7 +271,7 @@ Next up, Module 10 — the capstone. We are building your Smart Vault live. Ever
 - C) They build your systems on THEIR accounts, not yours
 - D) They have kill rules for underperforming ad campaigns
 
-**Correct Answer: C**
+**Correct Answer: C** -- If a provider builds on their accounts instead of yours, you become a hostage. When you leave, you lose everything -- your CRM data, ad history, automations, and domain configurations.
 
 ---
 
@@ -281,4 +281,15 @@ Next up, Module 10 — the capstone. We are building your Smart Vault live. Ever
 - C) A 13-month retainer that includes unlimited AI services
 - D) A chatbot that screens service providers automatically
 
-**Correct Answer: B**
+**Correct Answer: B** -- The Diagnostic Gatekeeper ensures you never invest in the wrong thing. The audit fee is credited toward any core build, so it functions as a deposit on clarity rather than a sunk cost.
+
+---
+
+## ANSWER KEY
+
+**Fill-in-the-Blank Answers:**
+1. DIY; DWY (Done With You); DFY (Done For You)
+2. YOUR; THEIR
+3. credited; clarity
+4. 13; 3-4 (three or four)
+5. kill rules
